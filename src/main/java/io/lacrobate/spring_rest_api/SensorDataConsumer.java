@@ -14,6 +14,11 @@ public class SensorDataConsumer {
 
     private static final Logger logger = LoggerFactory.getLogger(SensorDataConsumer.class);
 
+    @KafkaListener(topics = "javatechie-demo",groupId = "jt-group")
+    public void consumeEvents(SensorData sensor) {
+        System.out.println("consumer consume the events : " + sensor.getSensorId());
+    }
+
     /**
      * Écoute les messages du topic "sensor-data"
      * Affiche les informations détaillées sur chaque message reçu
